@@ -1,4 +1,5 @@
 import styles from './header.module.css'
+import Icon from '../icon/icon'
 
 function Header(){
     return(
@@ -9,6 +10,9 @@ function Header(){
                 </div>
                 <div className={styles.content}>
                     <h5>Criado por Josias</h5>
+                </div>
+                <div className={styles.content}>
+                    <Icon iconName={"github"} link={"https://github.com"}/>
                 </div>
             </div>
         </header>
