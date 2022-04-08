@@ -4,7 +4,7 @@ import Icon from '../icon/icon'
 function Header(){
     return(
         <header>
-        <div className="container">
+        <div className={styles.headerr}>
                 <div className={styles.content}>
                     <h1>Jogo da Velha</h1>
                 </div>
@@ -14,7 +14,7 @@ function Header(){
                 <div className={styles.content}>
                     <Icon iconName={"github"} link={"https://github.com"}/>
                 </div>
-            </div>
+        </div>
         </header>
     )
 }
