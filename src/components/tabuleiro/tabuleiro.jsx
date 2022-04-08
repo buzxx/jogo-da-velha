@@ -1,9 +1,17 @@
 import styles from "./tabuleiro.module.css"
-function Tabuleiro()
+import Icon from "../icon/icon"
+
+function Tabuleiro({status})
 {
     return(
         <div className={styles.gameoption}>
-            <p>x</p>
+            {
+                status === -1 && <Icon iconName={"x"}/>
+            }
+            {
+                status === 1 && <Icon iconName={"circle"}/>
+            }
+            
         </div>
     )
 }
