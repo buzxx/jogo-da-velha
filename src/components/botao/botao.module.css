@@ -1,9 +1,10 @@
 .botao{
-    background-color: aqua;
-    padding: 5px 10px;
+    background-color: rgb(21, 0, 255);
+    padding: 10px 20px;
     border-radius: 5px;
     border: none;
     cursor: pointer;
+    color: white;
 }
 
 .botao:hover{

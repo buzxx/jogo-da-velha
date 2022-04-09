@@ -11,11 +11,8 @@
     flex-direction: row;
 }
 
-.painel{
-    margin: 0 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    gap: 10px;
+@media screen and (max-width: 430px){
+    .jogo{
+        flex-direction: column;
+    }
 }
