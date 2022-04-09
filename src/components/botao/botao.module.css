@@ -1,0 +1,11 @@
+.botao{
+    background-color: aqua;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.botao:hover{
+    background-color: rgb(180, 242, 242);
+}

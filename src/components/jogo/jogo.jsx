@@ -1,7 +1,8 @@
 import styles from './jogo.module.css'
 import Tabuleiro from '../tabuleiro/tabuleiro'
 import { useState, useEffect } from 'react'
-import Icon from '../icon/icon'
+import GameInfo from '../gameinfo/gameinfo'
+
 
 const winnerTable = [
     [0, 1, 2],
@@ -38,6 +39,11 @@ function Jogo()
         })
     }
 
+    const handleReset = () => {
+        setEstado(Array(9).fill(0))
+        setWinner(0)
+    }
+
     //useEffect(() => {}, []) forma do use effect, primeiro parametro é uma funcao e o segundo é um array, dentro do array coloca a variavel que quer controlar
 
     useEffect(() => {
@@ -55,15 +61,10 @@ function Jogo()
                     />)
                 }
             </div>
+            <GameInfo elementoAt={elementoAtual} vencedor={winner}
+                onReset={handleReset}
+            />
             
-            <div className={styles.painel}>
-                <h3>Próximo a jogar:</h3>
-                {
-                    elementoAtual === 1 && <Icon iconName={"circle"}/>
-                }{
-                    elementoAtual === -1 && <Icon iconName={"x"}/>
-                }
-            </div>
             </div>
          </>
         
