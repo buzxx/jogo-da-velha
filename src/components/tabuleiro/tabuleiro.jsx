@@ -1,10 +1,16 @@
+import classNames from "classnames"
+
 import styles from "./tabuleiro.module.css"
 import Icon from "../icon/icon"
 
-function Tabuleiro({status, clique})
+function Tabuleiro({status, clique, isWinner})
 {
     return(
-        <div className={styles.gameoption} onClick={clique}>
+        <div className={classNames(styles.gameoption, {
+            [styles.winner]: isWinner
+        }
+        )
+        } onClick={clique}>
             {
                 status === -1 && <Icon iconName={"x"}/>
             }

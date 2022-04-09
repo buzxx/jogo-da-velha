@@ -20,6 +20,7 @@ function Jogo()
     const [estado, setEstado] = useState(Array(9).fill(0))
     const [elementoAtual, setElementoAtual] = useState(-1)
     const [winner, setWinner] = useState(0)
+    const [winnerLine, setWinnerLine] = useState([])
 
     const handleClick = (posi) => {
         if (estado[posi] === 0 && winner === 0)
@@ -35,14 +36,21 @@ function Jogo()
         winnerTable.forEach((linha) => {
             const values = linha.map((posic) => estado[posic])
             const soma = values.reduce((sum, value) => sum + value)
-            if (soma === 3 || soma === -3) setWinner(soma/3)
+            if (soma === 3 || soma === -3) {
+                setWinner(soma/3)
+                setWinnerLine(linha)
+            }
         })
     }
 
     const handleReset = () => {
         setEstado(Array(9).fill(0))
         setWinner(0)
+        setWinnerLine([])
     }
+
+    const verifyWinnerLine = (pos) => 
+    winnerLine.find((value) => value === pos) !== undefined
 
     //useEffect(() => {}, []) forma do use effect, primeiro parametro é uma funcao e o segundo é um array, dentro do array coloca a variavel que quer controlar
 
@@ -57,7 +65,8 @@ function Jogo()
             <div className={styles.itemtabuleiro}>
                 {
                     estado.map((valor, posicao) => <Tabuleiro key={`tabuleiro-posicao-${posicao}`} status={valor}
-                    clique={() => handleClick(posicao)}
+                    clique={() => handleClick(posicao)}//passa arrow function quando quer exetutar no clique
+                    isWinner={verifyWinnerLine(posicao)}// nesse caso nao passa arrow function pq nao executa no clique, executa direto
                     />)
                 }
             </div>
