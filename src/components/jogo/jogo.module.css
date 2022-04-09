@@ -3,3 +3,19 @@
     grid-template-columns: repeat(3, 1fr);
     
 }
+
+.jogo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.painel{
+    margin: 0 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+}
