@@ -3,11 +3,11 @@ import styles from './gameinfo.module.css'
 import Botao from "../botao/botao"
 
 
-function GameInfo({elementoAt, vencedor, onReset}){
+function GameInfo({elementoAt, vencedor, onReset, isDraw}){
     return(
         <div className={styles.painel}>
             {
-                vencedor === 0 && 
+                !isDraw && vencedor === 0 && 
                 <>
                     <h3>Próximo a jogar:</h3>
                     {
@@ -19,7 +19,7 @@ function GameInfo({elementoAt, vencedor, onReset}){
                 </>  
             }
             {
-                vencedor !== 0 && 
+                !isDraw && vencedor !== 0 && 
                 <>
                     <h3>vencedor:</h3>
                     {
@@ -28,6 +28,12 @@ function GameInfo({elementoAt, vencedor, onReset}){
                     {
                         vencedor === -1 && <Icon iconName={"x"}/>
                     }
+                </>
+            }
+            {
+                isDraw &&
+                <>
+                    <h3>EMPATE!</h3>
                 </>
             }
             <Botao click={onReset}>Reiniciar</Botao>

@@ -13,3 +13,7 @@
 .winner{
     border: 2px solid rgb(32, 170, 62);
 }
+
+.empate{
+    border: 2px solid rgb(230, 223, 23);
+}
