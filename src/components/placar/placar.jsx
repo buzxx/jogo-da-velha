@@ -1,7 +1,7 @@
 import styles from './placar.module.css'
 import Icon from '../icon/icon'
 
-function Placar ()
+function Placar ({placarX, placarCircle})
 {
     return(
         <div className={styles.placar}>
@@ -9,11 +9,11 @@ function Placar ()
             <div className={styles.itensp}>
                 <div className={styles.itemplacar}>
                     <Icon iconName={"circle"}/>
-                    <h2>0</h2>
+                    <h2>{placarCircle}</h2>
                 </div>
                 <div className={styles.itemplacar}>
                     <Icon iconName={"x"}/>
-                    <h2>0</h2>
+                    <h2>{placarX}</h2>
                 </div>
             </div>
         </div>

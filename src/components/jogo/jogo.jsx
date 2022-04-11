@@ -23,16 +23,15 @@ function Jogo()
     const [winner, setWinner] = useState(0)
     const [winnerLine, setWinnerLine] = useState([])
     const [empate, setEmpate] = useState(false)
+    const [placarX, setPlacarX] = useState(0)
+    const [placarCircle, setPlacarCircle] = useState(0)
 
     const handleClick = (posi) => {
         if (estado[posi] === 0 && winner === 0)
         {
             let novoEstado = [...estado]
-            novoEstado[posi] = elementoAtual//não pode passar o valor do elemento atual direto para o estado pq estado é uma var useState que vai ser usada nos componentes react, por isso tem que ser useState, senao nao funciona
-            setEstado(novoEstado)/*o array estado passa a ser igual ao array novoEstado, 
-            e com a alteração, começa a percorrer novamente o estado.map que gera o componente <Tabuleiro/>, 
-            por isso altera dinamicamente o tabuleiro, pois percorre o array novamente a cada alteracao do estado por meio do estado.map. 
-            Também, cada vez q ocorre alteração no estado, executa o useEffect que faz todas as verificacoes e alteracao do jogador*/
+            novoEstado[posi] = elementoAtual//não pode passar o valor do elemento atual direto para o estado pq estado é uma var useState que vai ser usada nos componentes react, por isso tem que ser useState
+            setEstado(novoEstado)/*o array estado passa a ser igual ao array novoEstado*/
         }
         
     }
@@ -75,8 +74,11 @@ function Jogo()
     }, [estado])
 
     useEffect (() => {
-        if(winner !== 0) setEmpate(false)
+        if (winner !== 0) setEmpate(false)
+        if (winner === 1) setPlacarCircle(placarCircle + 1)
+        if (winner === -1) setPlacarX(placarX + 1)
     }, [winner])
+
 
     return(
         <>
@@ -96,7 +98,8 @@ function Jogo()
             />
             
             </div>
-            <Placar/>
+            <Placar placarCircle={placarCircle} placarX={placarX}/>
+            
          </>
         
     )
