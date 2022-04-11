@@ -2,6 +2,7 @@ import styles from './jogo.module.css'
 import Tabuleiro from '../tabuleiro/tabuleiro'
 import { useState, useEffect } from 'react'
 import GameInfo from '../gameinfo/gameinfo'
+import Placar from '../placar/placar'
 
 
 const winnerTable = [
@@ -95,6 +96,7 @@ function Jogo()
             />
             
             </div>
+            <Placar/>
          </>
         
     )

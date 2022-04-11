@@ -1,0 +1,14 @@
+.placar{
+    margin-top: 20px;
+}
+
+.itensp{
+    display: flex;
+}
+
+.itemplacar{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+}
